@@ -28,4 +28,8 @@ count += 1;
   count = 0;
 }
 
-Collatz(8191);
+var testNum = document.getElementById("number-to-test").value;
+
+console.log(testNum);
+
+Collatz(testNum);

@@ -1,13 +1,13 @@
 var count = 0;
-var submitButton = $("#submit");
-var tableBody = $(".tbody");
-
+var submitButton = $("#submit"),
+    tableBody = $(".tbody"),
+    tableHStep = $(".tstep"),
+    tableHResult = $(".tresult");
 function Collatz (number) {
   'use strict';
-  $(submitButton).addClass("disabled");
-  console.log(number);
   count += 1;
 
+  $(submitButton).addClass("disabled");
   $(tableBody).append("<tr class=\"tableRow\"><td>" + count + "</td><td>" + number + "</td></tr>");
 
     if (number > 1) {
@@ -20,21 +20,19 @@ function Collatz (number) {
         Collatz(number);
       }
       else {
-        console.error("ERROR. STOP FDSJKDLSJFKSDLJF");
+        alert("There was an error. Make sure that JavaScript is enabled on the page and then try again.");
       }
     }
     else if (number === 1) {
-      console.log("Completed. It took " + count + " calls to the function to get to 1.")
+      $(tableHStep).text("Step          Total = " + count);
+      $(tableHResult).text("Result          Final = " + number);
     }
     else {
-      console.error("ERROR. STOP FDSJKDLSJFKSDLJF");
+      alert("There was an error. Make sure that JavaScript is enabled on the page and then try again.");
     }
-
-
   count = 0;
   $(submitButton).removeClass("disabled");
 }
-
 $(submitButton).click(function() {
   var testNum = $("#number-to-test").val();
   $(tableBody).children().remove(".tableRow");

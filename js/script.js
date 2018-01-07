@@ -35,13 +35,13 @@ function Collatz (number) {
         // Now that we have a result, send the result into the Collatz function to processed down further
         Collatz(number);
       }
-      // If it's neither even nor odd, there must be an error on the client's side
+      // If it's neither even, odd, nor 1, there must be an error on the client's side
       else {
         alert("There was an error. Make sure that JavaScript is enabled on the page and then try again.");
       }
     }
     // If the number is equal to 1, adjust the table header to have the total number of steps and final number
-    else if (number === 1) {
+    else if (number <= 1) {
       $(tableHStep).text("Step          Total = " + count);
       $(tableHResult).text("Result          Final = " + number);
     }
